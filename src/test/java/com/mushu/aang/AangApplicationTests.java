@@ -52,6 +52,6 @@ class AddNoteTests {
 	private TestRestTemplate restTemplate;
 	@Test
 	void contextLoads() {
-		Assert.that(this.restTemplate.getForObject("http://localhost:"+ port +"/notes/3", String.class).contains("Third"), "Get note by id");
+		Assert.that(this.restTemplate.postForObject("http://localhost:"+ port +"/notes",new Note(4, "test", "Fourth", "me"), String.class).contains("Fourth"), "Add note");
 	}
 }
